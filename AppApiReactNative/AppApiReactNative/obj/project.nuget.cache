@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dYgPtPqizvxrOfHqQkHQponxe6pOXOwSmYGW9mMeB0DwzmOaa67GHvC+htaT36b5b/knK8EsayyCivBMgQNrFA==",
+  "dgSpecHash": "MdYrS1M47pZ3egLwTTJNEtGRs8UI//piS/aDkM/UXL2M24B596wBgKPXzvJ002pInaBsxGzpflj3IArbTPXt2Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
+  "projectFilePath": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DoanIT\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\DoanIT\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

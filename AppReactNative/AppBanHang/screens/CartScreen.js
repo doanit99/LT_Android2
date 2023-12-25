@@ -1,59 +1,76 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ChevronLeftIcon } from 'react-native-heroicons/solid';
-import { useNavigation } from '@react-navigation/native';
+import { ChevronLeftIcon, TrashIcon } from 'react-native-heroicons/solid';
 import { themeColors } from '../theme';
-import FruitCardCart from '../components/fruitCardCart';
-import { cartItems } from '../constants';
 
-export default function CartScreen() {
-  const navigation = useNavigation();
-  const [cart, setCart] = useState([]);
+export default function CartScreen({ route, navigation }) {
+  const { cart } = route.params;
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  const handleAddToCart = (product) => {
-    addToCart(product);
+  // Tính tổng giá trị của giỏ hàng mỗi khi giỏ hàng thay đổi
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      const total = cart.reduce((accumulator, item) => {
+        return accumulator + item.price * item.quantity;
+      }, 0);
+      setTotalPrice(total);
+    };
+
+    calculateTotalPrice();
+  }, [cart]);
+
+  const handleRemoveItem = (itemId) => {
+    const updatedCart = cart.filter(item => item.id !== itemId);
+    route.params.updateCart(updatedCart);
   };
-  
-
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'space-between', backgroundColor: '#FFF9C4' }}>
-      <View style={{ flexDirection: 'row', justifyContent: 'flex-start', marginHorizontal: 5 }}>
-        <TouchableOpacity onPress={() => navigation.goBack()} style={{ borderWidth: 1, borderColor: '#ccc', borderRadius: 20 }}>
-          <ChevronLeftIcon size={30} color="gray" />
-        </TouchableOpacity>
-      </View>
-
-      <View style={{ flex: 1, marginHorizontal: 5 }}>
-        <Text style={{ color: themeColors.text, fontSize: 20, paddingTop: 40 }}>Your <Text style={{ fontWeight: 'bold' }}>cart</Text></Text>
-        <View>
-          {cart.map((item, index) => (
-            <FruitCardCart fruit={item} key={index} />
-          ))}
-        </View>
-        <View style={{ flexDirection: 'row', justifyContent: 'flex-end', paddingVertical: 16 }}>
-          <Text style={{ fontSize: 18 }}>Total price: <Text style={{ fontWeight: 'bold', color: '#FFC107' }}>
-            {cart.reduce((total, item) => total + item.price, 0).toFixed(2)}
-          </Text></Text>
-        </View>
-      </View>
-
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 7 }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', margin: 16 }}>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Payment')} // Assuming there's a 'Payment' screen
+          onPress={() => navigation.goBack()}
           style={{
-            backgroundColor: 'orange',
-            opacity: 0.8,
-            shadowColor: 'orange',
-            shadowRadius: 25,
-            shadowOffset: { width: 0, height: 15 },
-            shadowOpacity: 0.4,
-            padding: 12,
-            flex: 1,
+            backgroundColor: 'gray',
+            borderWidth: 1,
+            borderColor: 'gray',
             borderRadius: 20,
+            padding: 10,
           }}
         >
-          <Text style={{ fontSize: 20, textAlign: 'center', color: 'white', fontWeight: 'bold' }}>Payment</Text>
+          <ChevronLeftIcon size={30} color="white" />
+        </TouchableOpacity>
+        <Text style={{ fontSize: 30, fontWeight: 'bold', color: themeColors.text }}>Shopping Cart</Text>
+        <View style={{ width: 30 }} />
+      </View>
+      <FlatList
+        data={cart}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 16 }}>
+            <Text style={{ fontSize: 18 }}>{item.name}</Text>
+            <Text style={{ fontSize: 18 }}>Quantity: {item.quantity}</Text>
+            <Text style={{ fontSize: 18 }}>${item.price * item.quantity}</Text>
+            <TouchableOpacity onPress={() => handleRemoveItem(item.id)}>
+              <TrashIcon size={24} color="red" />
+            </TouchableOpacity>
+          </View>
+        )}
+      />
+      <View style={{ padding: 16, borderTopWidth: 1, borderColor: 'lightgray', marginTop: 'auto' }}>
+        <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Total: ${totalPrice}</Text>
+        <TouchableOpacity
+          onPress={() => {
+            // Xử lý khi người dùng nhấn nút Checkout
+            // (chẳng hạn, chuyển đến màn hình thanh toán)
+          }}
+          style={{
+            backgroundColor: themeColors.primary,
+            padding: 16,
+            borderRadius: 20,
+            alignItems: 'center',
+          }}
+        >
+          <Text style={{ fontSize: 20, color: 'white', fontWeight: 'bold' }}>Checkout</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

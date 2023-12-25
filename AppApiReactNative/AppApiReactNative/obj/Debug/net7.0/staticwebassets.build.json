@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4QlHpfl8XLyEa5kto6+NxHS5FqN+j0kdBDo+S1AJpQ0=",
+  "Hash": "SNMpz7sKuovuGhxEqaEkoRz1lmYXaUCIlQPLpQlOq2I=",
   "Source": "AppApiReactNative",
   "BasePath": "_content/AppApiReactNative",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "AppApiReactNative\\wwwroot",
       "Source": "AppApiReactNative",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
       "BasePath": "_content/AppApiReactNative",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\orange.png",
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\orange.png",
       "SourceId": "AppApiReactNative",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
       "BasePath": "_content/AppApiReactNative",
       "RelativePath": "images/orange.png",
       "AssetKind": "All",

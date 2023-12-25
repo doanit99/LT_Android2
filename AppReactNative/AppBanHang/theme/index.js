@@ -1,5 +1,6 @@
 export const themeColors = {
     bg: '#877dfa',
-    text: '#4E493D'
+    text: '#4E493D',
+    primary: '#3498db',
  }   
  

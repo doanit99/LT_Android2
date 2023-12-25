@@ -5,14 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 export default function FruitCard({ fruit }) {
     const navigation = useNavigation();
     const goToDetail = () => {
-        // navigation.navigate('ProductScreen', { fruit });
-        navigation.navigate('ProductScreen');
+        navigation.navigate('Product', { ...fruit})
       };
   return (
     <TouchableOpacity onPress={goToDetail}>
     <View style={styles.cardContainer}>
       <View style={styles.imageContainer}>
-        <Image source={{ uri: 'http://192.168.1.64:8081/images/' + fruit.image }} style={styles.cardImage} />
+        <Image source={{ uri: 'http://192.168.43.149:8081/images/' + fruit.image }} style={styles.cardImage} />
       </View>
 
       <View style={styles.textContainer}>

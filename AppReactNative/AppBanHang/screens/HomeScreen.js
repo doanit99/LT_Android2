@@ -18,7 +18,7 @@ export default function HomeScreen() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://192.168.1.64:8081/api/Categories');
+      const response = await fetch('http://192.168.43.149:8081/api/Categories');
       const data = await response.json();
       setResponseData(data);
     } catch (error) {
@@ -32,7 +32,7 @@ export default function HomeScreen() {
 
   const fetchProduct = async () => {
     try {
-      const product = await fetch('http://192.168.1.64:8081/api/Products');
+      const product = await fetch('http://192.168.43.149:8081/api/Products');
       const data = await product.json();
       setProductData(data);
     } catch (error) {
@@ -48,7 +48,7 @@ export default function HomeScreen() {
         {/* top bar */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 5 }}>
           <Bars3CenterLeftIcon size="30" color="black" />
-          <TouchableOpacity onPress={()=> navigation.navigate('Cart')} style={{ padding: 10, borderRadius: 20, backgroundColor: '#FFEFD5' }}>
+          <TouchableOpacity onPress={()=> navigation.navigate('Cart')} style={{ padding: 10}}>
             <ShoppingCartIcon size="25" color="orange" />
           </TouchableOpacity>
         </View>

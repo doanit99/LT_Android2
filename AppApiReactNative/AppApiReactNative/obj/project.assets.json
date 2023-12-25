@@ -11407,11 +11407,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
+      "projectUniqueName": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
       "projectName": "AppApiReactNative",
-      "projectPath": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
+      "projectPath": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\AppApiReactNative.csproj",
       "packagesPath": "C:\\Users\\DoanIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DoanIT\\Desktop\\AppApiReactNative\\AppApiReactNative\\obj\\",
+      "outputPath": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
