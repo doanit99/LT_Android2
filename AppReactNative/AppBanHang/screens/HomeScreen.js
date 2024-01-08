@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView, Touchable } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, Touchable, TextInput } from 'react-native'
 
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
@@ -17,6 +17,8 @@ export default function HomeScreen() {
   const [responseData, setResponseData] = useState(null);
   const [productData, setProductData] = useState(null);
   const [productCategory, setProductCategory] = useState([]);
+  const [searchText, setSearchText] = useState('');
+
 
   const fetchData = async () => {
     try {
@@ -74,15 +76,55 @@ export default function HomeScreen() {
     }
   };
 
+  const filterProducts = () => {
+    if (!searchText.trim()) {
+      return activeCategory === 'all' ? productData : productCategory;
+    }
+  
+    const productsToFilter = activeCategory === 'all' ? productData : productCategory;
+  
+    if (!Array.isArray(productsToFilter)) {
+      // Xử lý trường hợp không phải là mảng, có thể là null hoặc undefined
+      return [];
+    }
+  
+    const filteredProducts = productsToFilter.filter(
+      (product) => {
+        const productName = product.name || ''; 
+        const productDescription = product.description || ''; 
+  
+        return (
+          productName.toLowerCase().includes(searchText.toLowerCase()) ||
+          productDescription.toLowerCase().includes(searchText.toLowerCase())
+        );
+      }
+    );
+  
+    return filteredProducts;
+  };
+  
+  
+    
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#FFEFD5' }}>
       {/* top bar */}
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginHorizontal: 5 }}>
         <Bars3CenterLeftIcon size="30" color="black" />
-        <TouchableOpacity  style={{ padding: 10 }}>
+        <TextInput
+            style={{ borderWidth: 1, borderColor: 'gray', marginRight: 10, marginLeft:10, borderRadius: 5, flex: 1 }}
+            placeholder="Tìm kiếm..."
+            value={searchText}
+            onChangeText={(text) => setSearchText(text)}
+          />
+        <TouchableOpacity style={{ padding: 10 }}>
           <ShoppingCartIcon size="25" color="orange" />
         </TouchableOpacity>
+        {/* <TouchableOpacity style={{ padding: 10 }}>
+          <Text onPress={LoginScreen}>Login</Text>
+        </TouchableOpacity> */}
+        
+
       </View>
       {/* categories */}
       <View style={{ marginTop: 20 }}>
@@ -126,27 +168,26 @@ export default function HomeScreen() {
 
       </View>
       {/* carousel */}
-      <View style={{ marginTop: 18, flexDirection: 'row' }}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
-          {Array.isArray(activeCategory === 'all' ? productData : productCategory) &&
-            (activeCategory === 'all'
-              ? productData.map((fruit, index) => (
-                <View key={index} style={{ marginRight: 15 }}>
-                  <FruitCard fruit={fruit} />
-                </View>
-              ))
-              : productCategory.map((fruit, index) => (
-                <View key={index} style={{ marginRight: 15 }}>
-                  <FruitCard fruit={fruit} />
-                </View>
-              )))}
-        </ScrollView>
+      <View style={{ marginTop: 18, flexDirection: 'column' }}>
+        {/* Hiển thị sản phẩm khi có kết quả tìm kiếm */}
+        {Array.isArray(filterProducts()) && filterProducts().length > 0 && (
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 10 }}>
+            {filterProducts().map((fruit, index) => (
+              <View key={index} style={{ marginRight: 15 }}>
+                <FruitCard fruit={fruit} />
+              </View>
+            ))}
+          </ScrollView>
+        )}
 
-
+        {/* Hiển thị thông báo khi không có kết quả tìm kiếm */}
+        {Array.isArray(filterProducts()) && filterProducts().length === 0 && (
+          <Text style={{ fontSize: 18, textAlign: 'center', marginTop: 20 }}>Không có kết quả tìm kiếm.</Text>
+        )}
       </View>
 
       {/* hot sales */}
-      <View style={{ marginTop: 8, paddingLeft: 5, marginBottom: 1 }}>
+      {/* <View style={{ marginTop: 8, paddingLeft: 5, marginBottom: 1 }}>
         <Text style={{ color: themeColors.text, fontSize: 20, fontWeight: 'bold' }}>Hot Sales</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ overflow: 'visible' }}>
           {
@@ -158,7 +199,7 @@ export default function HomeScreen() {
           }
         </ScrollView>
 
-      </View>
+      </View> */}
 
     </SafeAreaView>
   )

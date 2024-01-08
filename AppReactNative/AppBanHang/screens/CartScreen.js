@@ -63,9 +63,9 @@ export default function CartScreen({ route, navigation }) {
         <View style={{ width: 30 }} />
       </View>
       <FlatList
-        data={cart}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => (
+          data={cart || []}  // Bảo vệ trước khi sử dụng cart
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
           <View style={{
             flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: 16, backgroundColor: 'lightgray',
             marginBottom: 10, borderRadius: 10
