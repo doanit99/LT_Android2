@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { IMAGE_URL } from '../api';
 
 export default function FruitCard({ fruit }) {
     const navigation = useNavigation();
@@ -11,7 +12,7 @@ export default function FruitCard({ fruit }) {
     <TouchableOpacity onPress={goToDetail}>
     <View style={styles.cardContainer}>
       <View style={styles.imageContainer}>
-        <Image source={{ uri: 'http://192.168.43.149:8081/images/' + fruit.image }} style={styles.cardImage} />
+        <Image source={{ uri: `${IMAGE_URL}` + fruit.image }} style={styles.cardImage} />
       </View>
 
       <View style={styles.textContainer}>

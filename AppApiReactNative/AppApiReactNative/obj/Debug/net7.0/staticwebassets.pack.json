@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\images\\orange.png"
     },
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\peach.png",
+      "PackagePath": "staticwebassets\\images\\peach.png"
+    },
+    {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AppApiReactNative.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Cors;
 namespace AppApiReactNative.Controllers
 {
     [EnableCors("AllowReactApp")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -133,6 +133,35 @@ namespace AppApiReactNative.Controllers
             return NoContent();
         }
 
+
+        //Get Get Product By Category
+        [HttpGet("{categoryId}")]
+        public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategory(int categoryId)
+        {
+            if (_context.Products == null)
+            {
+                return NotFound();
+            }
+
+            if (categoryId != 0)
+            {
+                // Lọc sản phẩm theo category nếu category được chỉ định
+                var products = await _context.Products
+                    .Where(p => p.Category_Id == categoryId)
+                    .ToListAsync();
+
+                if (products == null || !products.Any())
+                {
+                    return NotFound();
+                }
+
+                return Ok(products);
+            }
+            else
+            {
+                return BadRequest("Danh mục không được chỉ định hoặc không hợp lệ.");
+            }
+        }
         private bool ProductExists(int id)
         {
             return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();

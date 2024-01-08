@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { themeColors } from '../theme';
 import StarRating from 'react-native-star-rating';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { IMAGE_URL } from '../api';
 
 export default function ProductScreen(props) {
   const [cart, setCart] = useState([]);
@@ -62,7 +63,7 @@ export default function ProductScreen(props) {
 
   };
   const navigateToCart = () => {
-    navigation.navigate('Cart', { cart: cart });
+    navigation.navigate('Cart', { cart, setCart });
   };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
@@ -86,7 +87,7 @@ export default function ProductScreen(props) {
         </TouchableOpacity>
       </View>
       <View style={{ alignItems: 'center', shadowRadius: 10, shadowOffset: { width: 0, height: 5 }, shadowOpacity: 0.3 }}>
-        <Image source={{ uri: 'http://192.168.43.149:8081/images/' + fruit.image }} style={{ width: 290, height: 290 }} />
+        <Image source={{ uri:  `${IMAGE_URL}` + fruit.image }} style={{ width: 290, height: 290 }} />
       </View>
       <View style={{ flex: 1, backgroundColor: '#C8E6C9', borderTopLeftRadius: 45, borderTopRightRadius: 45, padding: 16 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>

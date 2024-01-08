@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SNMpz7sKuovuGhxEqaEkoRz1lmYXaUCIlQPLpQlOq2I=",
+  "Hash": "Qoc3doDJzlgmE2xaSCDoYqLY8Y+7YeDbm7RcWp1+/u8=",
   "Source": "AppApiReactNative",
   "BasePath": "_content/AppApiReactNative",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\orange.png"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\peach.png",
+      "SourceId": "AppApiReactNative",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
+      "BasePath": "_content/AppApiReactNative",
+      "RelativePath": "images/peach.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\peach.png"
     }
   ]
 }
