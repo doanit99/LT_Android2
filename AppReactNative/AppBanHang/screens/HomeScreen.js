@@ -1,17 +1,19 @@
-import { View, Text, TouchableOpacity, Image, ScrollView, Touchable, TextInput } from 'react-native'
+import { View, Text, TouchableOpacity, Image, ScrollView, Touchable, TextInput, ToastAndroid } from 'react-native'
 
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Bars3CenterLeftIcon, HeartIcon, ShoppingCartIcon } from 'react-native-heroicons/solid';
+import { ArrowLongDownIcon, Bars3CenterLeftIcon, HeartIcon, ShoppingCartIcon } from 'react-native-heroicons/solid';
 import { themeColors } from '../theme';
 import FruitCard from '../components/fruitCard';
 import { useNavigation } from '@react-navigation/native';
 import FruitCardSales from '../components/fruitCardSales';
 import { featuredFruits, categories } from '../constants';
 import { BASE_URL } from '../api';
+import Login from '../components/login';
 
 
-export default function HomeScreen() {
+export default function HomeScreen({ route }) {
+  const { username } = route.params;
   const [activeCategory, setActiveCategory] = useState('Oranges');
   const navigation = useNavigation();
   const [responseData, setResponseData] = useState(null);
@@ -103,7 +105,13 @@ export default function HomeScreen() {
     return filteredProducts;
   };
   
-  
+  // const navigateToLogin = () => {
+  //   navigation.navigate(Login);
+  // };
+  const navigateToLogout = () => {
+    ToastAndroid.show('Đăng xuất thành công', ToastAndroid.SHORT);
+    navigation.navigate(Login);
+  };
     
 
   return (
@@ -120,9 +128,11 @@ export default function HomeScreen() {
         <TouchableOpacity style={{ padding: 10 }}>
           <ShoppingCartIcon size="25" color="orange" />
         </TouchableOpacity>
-        {/* <TouchableOpacity style={{ padding: 10 }}>
-          <Text onPress={LoginScreen}>Login</Text>
-        </TouchableOpacity> */}
+        <TouchableOpacity style={{ padding: 10 }}>
+          {/* <Text onPress={navigateToLogin}>Login</Text> */}
+          <Text>Hi, {username} </Text>
+          <Text onPress={navigateToLogout}>Đăng xuất</Text>
+        </TouchableOpacity>
         
 
       </View>
@@ -130,7 +140,7 @@ export default function HomeScreen() {
       <View style={{ marginTop: 20 }}>
         {/* <Text style={{ color: themeColors.text, fontSize: 20, fontWeight: 'bold', marginLeft: 5 }}>Seasonal</Text> */}
         <Text style={{ color: themeColors.text, fontSize: 30, fontWeight: 'bold', marginLeft: 5 }}>Fruits and Vegetables</Text>
-
+       
         <ScrollView style={{ marginTop: 8, paddingHorizontal: 5 }} horizontal showsHorizontalScrollIndicator={false}>
           <TouchableOpacity
             style={{

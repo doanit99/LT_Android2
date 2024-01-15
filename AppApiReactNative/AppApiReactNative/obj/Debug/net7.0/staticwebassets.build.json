@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Qoc3doDJzlgmE2xaSCDoYqLY8Y+7YeDbm7RcWp1+/u8=",
+  "Hash": "oQbacn1QQeEEafFiOcl6RM6t16BzKvYJFCAQBOTdedA=",
   "Source": "AppApiReactNative",
   "BasePath": "_content/AppApiReactNative",
   "Mode": "Default",
@@ -16,6 +16,23 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\grapes.png",
+      "SourceId": "AppApiReactNative",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
+      "BasePath": "_content/AppApiReactNative",
+      "RelativePath": "images/grapes.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\grapes.png"
+    },
     {
       "Identity": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\orange.png",
       "SourceId": "AppApiReactNative",
@@ -49,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\peach.png"
+    },
+    {
+      "Identity": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\rau-xa-lach.jpg",
+      "SourceId": "AppApiReactNative",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\",
+      "BasePath": "_content/AppApiReactNative",
+      "RelativePath": "images/rau-xa-lach.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\rau-xa-lach.jpg"
     }
   ]
 }

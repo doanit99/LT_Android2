@@ -1,12 +1,20 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\grapes.png",
+      "PackagePath": "staticwebassets\\images\\grapes.png"
+    },
+    {
       "Id": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\orange.png",
       "PackagePath": "staticwebassets\\images\\orange.png"
     },
     {
       "Id": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\peach.png",
       "PackagePath": "staticwebassets\\images\\peach.png"
+    },
+    {
+      "Id": "C:\\Users\\DoanIT\\Desktop\\LTAndroid_2_NBD\\AppApiReactNative\\AppApiReactNative\\wwwroot\\images\\rau-xa-lach.jpg",
+      "PackagePath": "staticwebassets\\images\\rau-xa-lach.jpg"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AppApiReactNative.Microsoft.AspNetCore.StaticWebAssets.props",
