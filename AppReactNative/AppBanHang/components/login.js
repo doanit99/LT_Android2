@@ -59,7 +59,7 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to Your App</Text>
+      <Text style={styles.title}>Welcome to App Fruits</Text>
       <TextInput
         placeholder="Username"
         value={username}

@@ -86,7 +86,7 @@ namespace AppApiReactNative.Controllers
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser([FromForm] User user)
+        public async Task<ActionResult<User>> Register([FromForm] User user)
         {
           if (_context.Users == null)
           {

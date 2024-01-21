@@ -121,13 +121,11 @@ export default function HomeScreen({ route }) {
         <Bars3CenterLeftIcon size="30" color="black" />
         <TextInput
             style={{ borderWidth: 1, borderColor: 'gray', marginRight: 10, marginLeft:10, borderRadius: 5, flex: 1 }}
-            placeholder="Tìm kiếm..."
+            placeholder="Search..."
             value={searchText}
             onChangeText={(text) => setSearchText(text)}
           />
-        <TouchableOpacity style={{ padding: 10 }}>
-          <ShoppingCartIcon size="25" color="orange" />
-        </TouchableOpacity>
+        
         <TouchableOpacity style={{ padding: 10 }}>
           {/* <Text onPress={navigateToLogin}>Login</Text> */}
           <Text>Hi, {username} </Text>

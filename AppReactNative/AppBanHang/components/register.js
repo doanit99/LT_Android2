@@ -4,7 +4,7 @@ import { BASE_URL } from '../api';
 import axios from 'axios';
 
 const Register = ({ navigation }) => {
-    const [username, setUsername] = useState('');
+    const [userName, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
@@ -12,27 +12,31 @@ const Register = ({ navigation }) => {
         setShowPassword(!showPassword);
     };
 
-    const register = async (userData) => {
+    const register1 = async () => {
         try {
-            // Địa chỉ URL của API register
-            const data = await axios.post(`${BASE_URL}/Users/PostUser`, userData);
-
-            if (data.status === 201) {
-                // Đăng ký thành công, xử lý dữ liệu phản hồi nếu cần
-                ToastAndroid.show('Đăng kí thành công', ToastAndroid.SHORT);
+            const apiUrl = `${BASE_URL}Users/Register`;
+    
+            const formData = new FormData();
+            formData.append('UserName', userName);
+            formData.append('Password', password);
+    
+            const response = await axios.post(apiUrl, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+    
+            if (response.status === 201) {
+                // Xử lý đăng ký thành công
+                ToastAndroid.show('Đăng ký thành công', ToastAndroid.SHORT);
                 navigation.navigate('Login');
-                return true;
             } else {
-                // Đăng ký không thành công, xử lý lỗi nếu cần
-                ToastAndroid.show('Đăng kí thất bại', ToastAndroid.SHORT);
-                throw new Error('Đăng ký không thành công');
+                // Xử lý đăng ký thất bại
+                ToastAndroid.show('Đăng ký thất bại', ToastAndroid.SHORT);
             }
-
         } catch (error) {
-            // Hiển thị thông báo khi đăng kí không thành công
-            ToastAndroid.show('Đăng kí thất bại', ToastAndroid.SHORT);
-            // Trả về false nếu đăng kí không thành công
-            return false;
+            // Xử lý lỗi và hiển thị thông báo lỗi chi tiết
+            ToastAndroid.show(`Đăng ký thất bại: ${error.message}`, ToastAndroid.SHORT);
         }
     };
 
@@ -51,16 +55,16 @@ const Register = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Đăng kí</Text>
+            <Text style={styles.title}>Register</Text>
             <TextInput
-                placeholder="Tên đăng kí"
-                value={username}
+                placeholder="UserName"
+                value={userName}
                 onChangeText={(text) => setUsername(text)}
                 style={styles.input}
             />
             <View style={styles.passwordContainer}>
                 <TextInput
-                    placeholder="Mật khẩu"
+                    placeholder="Password"
                     value={password}
                     onChangeText={(text) => setPassword(text)}
                     secureTextEntry={!showPassword}
@@ -70,8 +74,8 @@ const Register = ({ navigation }) => {
                     <Text >{showPassword ? '👁️' : '👁️'}</Text>
                 </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.registerButton} onPress={register}>
-                <Text style={styles.registerButtonText}>Đăng kí</Text>
+            <TouchableOpacity style={styles.registerButton} onPress={register1}>
+                <Text style={styles.registerButtonText}>Register</Text>
             </TouchableOpacity>
 
             <View style={styles.orContainer}>

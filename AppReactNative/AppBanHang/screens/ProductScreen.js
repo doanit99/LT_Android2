@@ -91,7 +91,7 @@ export default function ProductScreen(props) {
       </View>
       <View style={{ flex: 1, backgroundColor: '#C8E6C9', borderTopLeftRadius: 45, borderTopRightRadius: 45, padding: 16 }}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10 }}>
-          <Text style={{ color: 'gray', fontWeight: 'bold' }}>Số lượng: {fruit.qty}</Text>
+          <Text style={{ color: 'gray', fontWeight: 'bold' }}>Qty: {fruit.qty}</Text>
           <StarRating disabled={true} starSize={18} containerStyle={{ width: 120 }} maxStars={5} rating={5}
             fullStarColor="#FFA500" emptyStarColor="lightgray" />
         </View>
