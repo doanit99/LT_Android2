@@ -21,11 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.doan1234.AppBanHang"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3c84b849-1bf8-4591-8ae9-6fc4364e2b36"
+      }
     }
-    
   }
 }
